@@ -1,0 +1,416 @@
+:root{
+	--baseColor: #2f874a;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color: rgba(232, 231, 231, 0.294);
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+	color: white;
+}
+
+li{
+	list-style: none;
+}
+
+
+.alignJustify{
+	display: flex;
+	justify-content: center;
+}
+
+a:hover{
+	color: white;
+}
+
+/* .row{
+	align-items: center;
+} */
+
+.bgNav{
+	background-color: var(--baseColor);
+}
+
+.fixedNav{
+	position: fixed !important;
+	z-index: 999999;
+	width: 100%;
+	top: 0;
+}
+
+.logoText{
+	color: white;
+	font-size: 27;
+	letter-spacing: 2px;
+}
+
+.nav-link-custom{
+	font-size: 16px !important;
+    margin: 0;
+    font-weight: 600 !important;
+    color: #000 !important;
+    text-align: center !important;
+    transition: 0.3s !important;
+	padding: 15px 20px !important;
+}
+
+.nav-link-custom:hover{
+	background-color: var(--baseColor);
+	transition: ease-in-out .6s;
+	color: white !important;
+}
+
+.sliderHeadingText{
+	padding: 10px 18px;
+	color: white;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	font-size: 17px;
+	background: rgb(47,135,74);
+	background:linear-gradient(90deg, rgba(47,135,74,0.7721463585434174) 0%, rgba(47,135,74,1) 100%);
+}
+
+.crouselImg{
+	height: 550px;
+}
+
+.carousel-card{
+	background-color: white;
+	padding: 10px;
+	box-shadow: -7px 11px 44px 12px rgba(184,184,184,0.45);
+	border-radius: 10px;
+	
+}
+
+.carousel-inner-card{
+	background: rgb(47,135,74);
+	background:linear-gradient(90deg, rgba(47,135,74,0.7721463585434174) 0%, rgba(47,135,74,1) 100%);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.sliderText {
+	color: white;
+	font-weight: 500;
+	padding-top: 10px;
+}
+
+.activityBox{
+	background: rgb(47,135,74);
+	background:linear-gradient(90deg, rgba(47,135,74,0.7721463585434174) 0%, rgba(47,135,74,1) 100%);
+	display: flex;
+	justify-content: center;
+	padding: 15px 10px;
+	border-radius: 10px;
+	margin: 0px 10px;
+}
+
+.activityCard > a{
+	font-size: 14px;
+}
+
+.allActivityBox{
+	overflow-y: scroll;
+	width: 97%;
+	display: flex;
+}
+
+.activityCard{
+	width: 130px;
+	overflow-x: hidden;
+}
+
+.upCardImg{
+	position: relative;
+}
+
+.upCardImg > img:hover{
+	background-color: #2f874979;
+}
+
+.upCardImg > img{
+	object-fit: contain;
+	width: 100%;
+	
+}
+
+/* .upCardImg > img::after{
+	background-color: #e3e3e3;
+} */
+
+.centeredText{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+	width: 60%;
+	display: flex;
+	justify-content: center;
+}
+
+
+.centeredText > a{
+	color: var(--baseColor);
+	font-size: 15px;
+	font-weight: 500;
+}
+
+.aboutUsContainer{
+	background-color: white;
+	border-radius: 10px;
+}
+
+.objectiveCard{
+	background-color: white;
+	box-shadow: -7px 11px 44px 12px rgba(184,184,184,0.45);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.objectiveImg{
+	height: 100px;
+	width: 100px;
+}
+
+.objectiveCard > h4{
+	font-size: 18px;
+	padding-top: 5px;
+}
+
+.contactUscard{
+	background-color: white;
+	box-shadow: -7px 11px 44px 12px rgba(184,184,184,0.45);
+	padding: 20px;
+	border-radius: 10px;
+	height: 40vh;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.mainfooter{
+	background-color: var(--baseColor);
+}
+
+.copyright{
+	background-color: #caffda;
+}
+
+.mapSection{
+	border-bottom: 1px solid white;
+	margin: 20px 0;
+}
+
+.formContainer{
+	border-radius: 10px;
+	border: 1px solid var(--baseColor);
+	padding: 30px;
+	background-color: white;
+	box-shadow: -7px 11px 44px 12px rgba(184,184,184,0.45);
+}
+
+.borderBottomForForm{
+	border-bottom-width: 2px;
+	border-bottom-style: solid;
+	border-image: linear-gradient(to right, #2f87495f, #2f874a) 1;
+	/* padding: 8px 0; */
+}
+
+.formContainerFor{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.formContainerFor > label{
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.formContainerFor > input{
+	padding: 5px 5px;
+	width: 20vw;
+	border: 1px solid var(--baseColor);
+	border-radius: 6px;
+}
+
+.formContainerFor > select{
+	padding: 5px 5px;
+	width: 20vw;
+	border: 1px solid var(--baseColor);
+	border-radius: 6px;
+}
+
+.sup{
+	color: red;
+}
+
+.txtarea{
+	padding: 5px 5px;
+	width: 64vw;
+	border: 1px solid var(--baseColor);
+	border-radius: 6px;
+}
+
+.formBtn{
+	background: rgb(47,135,74);
+	background:linear-gradient(90deg, rgba(47,135,74,0.7721463585434174) 0%, rgba(47,135,74,1) 100%);
+	padding: 5px 30px;
+	border: 0;
+	font-size: 20px;
+	color: white;
+	font-weight: 700;
+	margin-top: 10px;
+	border-radius: 10px;
+}
+
+.payImg{
+	width: 40%;
+	height: auto;
+}
+
+.latestActivity{
+	background-color: white;
+    padding: 10px;
+    box-shadow: -7px 11px 44px 12px rgba(184,184,184,0.45);
+    border-radius: 10px;
+}
+
+.latestActivity >h4{
+	font-size: 20px;
+	justify-content: center;
+	display: flex;
+}
+
+.socialLink{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.iconForCard1 > img{
+	height: 13vh;
+	width: 7vw;
+	background-color: var(--baseColor);
+	padding: 10;
+	border-radius: 70px;
+}
+
+.contactUscard1{
+	background: linear-gradient(90deg, rgba(255,255,255,1) 30%, rgba(197,242,211,1) 100%);
+	box-shadow: -7px 11px 44px 12px rgba(184,184,184,0.45);
+	padding: 20px;
+	border-radius: 10px;
+	height: 35vh;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+  .mobileView{
+	left: 0;
+    background: #98ffb7;
+    width: 60%;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+	/* transition: 0.5s; */
+	height: 100%;
+	display: none;
+}
+
+.mobileLinks:hover{
+	letter-spacing: 3;
+}
+
+.sliderHeadingForOthers{
+	margin-top: 30vh;
+}
+  
+/* media query from here */
+
+@media only screen and (max-width: 1056px){
+	.navbar{
+		display: none;
+	}
+
+	.logoText{
+		font-size: 15px;
+		text-align: center;
+	}
+
+	#bars{
+		display: flex !important;
+	}
+}
+
+@media only screen and (max-width: 556px){
+	.logoTextContainer{
+		display: none !important;
+	}
+
+	.quick{
+		justify-content: flex-start !important;
+	}
+
+	.social{
+		justify-content: flex-start !important;
+	}
+
+	.copyText{
+		font-size: 15px;
+	}
+
+	.allActivityBox{
+		margin-top: 30px;
+	}
+
+	.sliderHeadingText{
+		margin-top: 20px;
+	}
+
+	.footerLogo{
+			height: 10vh !important;
+	}
+
+	.formContainerFor{
+		display: block;
+	}
+
+	.formContainerFor > input {
+		width: 100%;
+	}
+
+	.formContainerFor > select{
+		width: 100%;
+	}
+	
+	.formContainerFor > label{
+		display: block !important;
+	}
+
+	.payImg{
+		width: 70%;
+		box-shadow: -7px 11px 44px 12px rgba(184,184,184,0.45);
+		padding: 5px;
+		border-radius: 10px;
+		margin-top: 10;
+	}
+
+	.txtarea{
+		width: 100%;
+	}
+
+	
+}

@@ -1,0 +1,118 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+    integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <title>Kartikey Welafare Trust</title>
+</head>
+{{> navbar navbarData=navbarLink}}
+{{> slider}}
+{{!-- activity section --}}
+<section id="activity" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="sliderHeading  d-flex justify-content-center">
+          <h4 class="sliderHeadingText ">Members / Managment</h4>
+        </div>
+        <div id="carouselExampleControls" class="carousel slide carousel-card" data-bs-ride="carousel">
+          <div class="carousel-inner carousel-inner-card">
+            {{#each memberSliderData}}
+            <div class="carousel-item {{this.class}}">
+              <img src={{this.imgUrl}} class="d-block w-100" alt="...">
+              <h5 class="sliderText d-flex justify-content-center">{{this.name}}</h5>
+              <p class="sliderText d-flex justify-content-center">{{this.designation}}</p>
+            </div>
+            {{/each}}
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="upCardImg carousel-card mt-5">
+          <img src="../static/img/donation.jpg" alt="Donation">
+          <div class="centeredText">
+            <a href="" class="">Donation</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="allActivityBox">
+            {{#each activityCard}}
+              <div class="activityBox">
+                <div class="activityCard">
+                  <a href={{this.url}}>
+                  <i class=" {{this.iconUrl}} alignJustify text-light fa-2x pb-2"></i>
+                  <a href={{this.url}} class="alignJustify text-light">{{this.jobName}}</a>
+                  </a>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+         <div class="sliderHeading  d-flex justify-content-center pt-4">
+          <h4 class="sliderHeadingText ">Latest Activity</h4>
+        </div>
+        <div class="latestActivity">
+            <h4 class="px-3">Follow us on Social Media for all Latest Activity</h4>
+            <div class=" px-4 py-3">
+              <a href="https://www.facebook.com/kartikeyavelapheyaratrasta?mibextid=LQQJ4d" class="socialLink py-3">
+                   <p class="mb-0">Follow us on Facebook</p>
+                <img src="../static/img/face.png" alt="Facebook">
+              </a>
+            </div>
+             <div class="px-4 py-3">
+              <a href="https://instagram.com/kartikeyawelfaretrust?igshid=OGQ5ZDc2ODk2ZA==" class="socialLink py-3">
+                  <p class="mb-0">We are at Instagram also</p>
+                <img src="../static/img/insta.png" alt="Intagram">
+              </a>
+            </div>
+        </div>
+      </div>
+       <div class="col-md-3">
+        <div class="sliderHeading  d-flex justify-content-center">
+          <h4 class="sliderHeadingText ">Recent Activity</h4>
+        </div>
+        <div class="upCard carousel-card">
+          <marquee direction="up" height="290" width="90%" scrollamount="3" class="mb-3">
+            {{#each latestactivities}}
+              <p class="text-dark">{{this.paragraph}}</p>
+            {{/each}}
+          </marquee>
+        </div>
+         <div class="upCardImg carousel-card mt-5">
+          <img src="../static/img/member.jpg" alt="Member">
+          <div class="centeredText">
+            <a href="" class="">Member Apply</a>
+          </div>
+        </div>
+    </div>
+</section>
+{{> aboutUs aboutUsDataPara=aboutUsData}}
+{{> objective objectiveCardData=objectiveData}}
+{{> contactUs}}
+{{> footer}}
+<body>
+  {{! bootstrap js }}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

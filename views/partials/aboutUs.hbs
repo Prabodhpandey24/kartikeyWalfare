@@ -1,0 +1,23 @@
+<section id="aboutUs" class="py-5">
+  <div class="sliderHeading d-flex justify-content-center ">
+    <h4 class="sliderHeadingText">About Us</h4>
+  </div>
+  <div class="container">
+    <div class="row aboutUsContainer">
+      <div class="col-md-5">
+        <div class="justify-content-center d-flex">
+          <img src="/static/img/kartikeyLogo1.png" alt="" class="" />
+        </div>
+      </div>
+      <div class="col-md-7">
+        {{#each aboutUsDataPara}}
+          <div class="justify-content-center d-flex align-items-center h-100">
+            <p class="aboutPara">
+              {{this.aboutParagraph}}
+            </p>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>

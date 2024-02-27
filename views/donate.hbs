@@ -1,0 +1,78 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+    integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <title>Kartikey Welafare Trust</title>
+</head>
+{{> navbar navbarData=navbarLink}}
+<section class="py-5 mx-4">
+  <div class="sliderHeading d-flex justify-content-center sliderHeadingForOthers">
+    <h4 class="sliderHeadingText ">Donate</h4>
+  </div>
+  <div class="container formContainer">
+    <form action="/donation-submited" method="post" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-6 formContainerFor">
+          <label for="Name" class="formlabel">Name <sup class="sup">*</sup> :</label>
+          <input type="text" id="fname" name="FullName">
+        </div>
+        <div class="col-md-6 formContainerFor pt-3">
+          <label for="Mobile Number" class="formlabel">Mobile Number <sup class="sup">*</sup> :</label>
+          <input type="text" id="mobNum" name="MobileNumber">
+        </div>
+        <div class="col-md-6 formContainerFor pt-3">
+          <label for="City" class="formlabel">City <sup class="sup">*</sup> :</label>
+          <input type="text" id="city" name="City">
+        </div>
+        <div class="borderBottomForForm my-4"></div>
+        <div class="col-md-6 formContainerFor">
+          <label for="cars">Payment Mode<sup class="sup">*</sup> :</label>
+          <select id="cars formContainerFor" name="UpiMethod">
+            <option value="Bank Transfer Slip">Bank Transfer Slip</option>
+            <option value="Google Pay">Google Pay</option>
+            <option value="Phonepe">Phonepe</option>
+            <option value="Amazon Pay">Amazon Pay</option>
+            <option value="Paytm">Paytm</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="col-md-6 formContainerFor">
+          <label for="City" class="formlabel">UPI SCAN:<sup class="sup">*</sup> :</label>
+          <img src="/static/img/donate.jpg" alt="" class="payImg">
+        </div>
+        <div class="borderBottomForForm my-4"></div>
+        <div class="col-md-6 formContainerFor">
+          <label for="City" class="formlabel">Payment Reciept Upload<sup class="sup">*</sup> :</label>
+          <input type="file" id="myFile" name="file_donation_upi" class="">
+        </div>
+        <div class="borderBottomForForm my-3 pt-3"></div>
+        <div class="col-md-12 formContainerFor">
+          <label for="Name" class="formlabel">Description :</label>
+          <textarea name="Description" id="" cols="5" rows="2" class="txtarea"></textarea>
+        </div>
+           <div class="borderBottomForForm my-3"></div>
+          <div class="d-flex justify-content-center">
+          <input type="submit" value="Submit" class="formBtn">
+        </div>
+      </div>
+    </form>
+</section>
+{{> footer}}
+
+<body>
+  {{! bootstrap js }}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

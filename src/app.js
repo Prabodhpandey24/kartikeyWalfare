@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
 // file import
@@ -17,7 +18,7 @@ app.use("", route);
 
 // db connect
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/Kartikey_Welfare");
+mongoose.connect(process.env.MONGO_URL);
 
 const NavbarLinks = require("./model/navbarLinks");
 const Slider = require("./model/memberSlider");
@@ -53,4 +54,4 @@ app.set("view engine", "hbs");
 app.set("views", "views");
 hbs.registerPartials("views/partials");
 
-app.listen(process.env.PORT | 1008);
+app.listen(process.env.PORT || 1008);

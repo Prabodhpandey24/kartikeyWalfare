@@ -337,6 +337,13 @@ a:hover{
 .sliderHeadingForOthers{
 	margin-top: 30vh;
 }
+
+.formContainerForLogin > input{
+	padding: 5px 5px;
+	width: 20vw;
+	border: 1px solid var(--baseColor);
+	border-radius: 6px;
+}
   
 /* media query from here */
 
@@ -386,6 +393,7 @@ a:hover{
 
 	.formContainerFor{
 		display: block;
+		padding-top: 10px !important;
 	}
 
 	.formContainerFor > input {

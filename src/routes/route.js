@@ -171,5 +171,13 @@ routes.get('/contactUs', async (req,res)=>{
 	});
 });
 
+routes.get('/login', async (req,res)=>{
+	const navBarData = await navbarLink.find();
+	res.render('login',{
+		navbarLink : navBarData,
+	});
+});
+
+
 
 module.exports = routes;

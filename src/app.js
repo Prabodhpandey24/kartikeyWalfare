@@ -54,4 +54,4 @@ app.set("view engine", "hbs");
 app.set("views", "views");
 hbs.registerPartials("views/partials");
 
-app.listen(process.env.PORT || 1008);
+app.listen(process.env.PORT || 3000);

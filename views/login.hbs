@@ -17,27 +17,28 @@
 <section class="pt-5">
   {{!-- <div class="sliderHeading d-flex justify-content-center sliderHeadingForOthers">
     <h4 class="sliderHeadingText ">Login</h4>
-  </div> --}} 
-<div class="container-fluid mx-0 px-0">
-	<div class="row" style="align-items: center; justify-content:center"> 
-		<div class="col-sm-7 pt-5">
-		<img src="../static/img/wheat.jpeg" alt="Wheat" style="width: 100%;">
-		</div>	
-		<div class="col-sm-5 " style="padding-top: 150px;">
-			   <form action="" method="post">
-      <div class="row" style="justify-content: center;">
-        <div class="col-md-6 formContainerForLogin">
-          <label for="Name" class="formlabel">Email Address / User Id</label>
-          <input type="text" id="userId" name="Id">
-		  <label for="Name" class="formlabel" style="padding-top: 30px;">Password</label>
-          <input type="password" id="pass" name="Password">
-        </div>
+  </div> --}}
+  <div class="container-fluid mx-0 px-0">
+    <div class="row" style="align-items: center; justify-content:center">
+      <div class="col-sm-7 pt-5">
+        <img src="../static/img/wheat.jpeg" alt="Wheat" style="width: 100%;">
       </div>
-    </form>
-		</div>
-	</div>
-</div>
-  
+      <div class="col-sm-5 " style="padding-top: 150px;">
+        <form action="/adminlogin" method="post" enctype="multipart/form-data">
+          <div class="row" style="justify-content: center;">
+            <div class="col-md-6 formContainerForLogin">
+              <label for="Name" class="formlabel">Email Address / User Id</label>
+              <input type="text" id="userId" name="Id">
+              <label for="Name" class="formlabel" style="padding-top: 30px;">Password</label>
+              <input type="password" id="pass" name="Password">
+              <button class="btn btn-primary mt-4 w-100">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </section>
 {{> footer}}
 

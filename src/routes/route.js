@@ -178,6 +178,35 @@ routes.get('/login', async (req,res)=>{
 	});
 });
 
+// Login route
+const AdminUser = require('../model/adminUser');
+routes.post("/adminlogin", async (req, resp) => {
+    console.log("data", req.body);
+    const email = req.body.Email || req.body.email;
+    const password = req.body.Password || req.body.password;
+
+    if (password && email) {
+        let user = await AdminUser.findOne({ Email: email, Password: password }).select("-Password");
+        if (user) {
+            resp.send(user);
+        } else {
+            resp.send({ result: "User not found!.." });
+        }
+    } else {
+        resp.send({ result: "Admin not found!.." });
+    }
+});
+
+// GET all applyMembers
+const ApplyMember = require('../model/applyMember');
+routes.get('/applyMembers', async (req, res) => {
+    try {
+        const applyMembers = await ApplyMember.find();
+        res.json(applyMembers);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
 
 
 module.exports = routes;

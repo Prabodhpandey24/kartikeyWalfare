@@ -24,14 +24,14 @@
         <img src="../static/img/wheat.jpeg" alt="Wheat" style="width: 100%;">
       </div>
       <div class="col-sm-5 " style="padding-top: 150px;">
-        <form action="/adminlogin" method="post" enctype="multipart/form-data">
+        <form action="/adminlogin" method="post">
           <div class="row" style="justify-content: center;">
             <div class="col-md-6 formContainerForLogin">
-              <label for="Name" class="formlabel">Email Address / User Id</label>
-              <input type="text" id="userId" name="Id">
+              <label for="Name" class="formlabel" >Email Address / User Id</label>
+              <input type="text" id="userId" name="Email">
               <label for="Name" class="formlabel" style="padding-top: 30px;">Password</label>
               <input type="password" id="pass" name="Password">
-              <button class="btn btn-primary mt-4 w-100">Login</button>
+              <input type="submit" value="Submit" class="formBtn">
             </div>
           </div>
         </form>

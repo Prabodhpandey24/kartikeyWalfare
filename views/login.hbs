@@ -12,7 +12,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/static/css/styles.css">
   <title>Kartikey Welafare Trust</title>
-    <style>
+    <!--<style>
     /* Styles for the popup */
     .popup {
       position: fixed;
@@ -50,7 +50,7 @@
       text-align: center;
       font-size: 18px;
     }
-  </style>
+  </style>-->
 </head>
 {{> navbar navbarData=navbarLink}}
 <section class="pt-5">
@@ -63,7 +63,7 @@
         <img src="../static/img/wheat.jpeg" alt="Wheat" style="width: 100%;">
       </div>
       <div class="col-sm-5 " style="padding-top: 150px;">
-        <form action="/adminlogin" method="post" onsubmit="openPopup(); return false;">
+        <form action="/adminlogin" method="post"  return false;">
           <div class="row" style="justify-content: center;">
             <div class="col-md-6 formContainerForLogin">
               <label for="Name" class="formlabel" >Email Address / User Id</label>
@@ -80,11 +80,11 @@
 
 </section>
 
-  <div class="popup" id="popup">
+  <!--<div class="popup" id="popup">
     <div class="popup-card">
       <button class="close-btn" onclick="closePopup()">&times;</button>
       <p id="loginMessage" class="loginMessage">Login successfully</p>
-      <!-- Your card content goes here -->
+       
       <h3 class="card-title mt-2">Welcome to Kartikey Welfare Trust</h3>
 
       <div class="d-flex justify-content-between" style="margin-top: 3rem;">
@@ -102,7 +102,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 {{> footer}}
 
 <body>
@@ -112,7 +112,7 @@
     crossorigin="anonymous">
   </script>
 
-  <script>
+  <!--<script>
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
     }
@@ -127,7 +127,7 @@
           loginMessage.style.display = 'none';
         }
       }, 5000); 
-  </script>
+  </script> -->
 </body>
 
 </html>

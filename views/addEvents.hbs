@@ -19,16 +19,15 @@
 
     <div class="container-fluid mx-0 px-0" style="margin-top: 7rem; margin-bottom: 2rem">
         <div class="row" style="align-items: center; justify-content:center">
-            <div class="card col-sm-5" style="padding-top: 50px;">
+            <div class=" card col-sm-5" style="padding-top: 50px;">
                 <form action="/upcomingevents" method="post">
                     <div class="row" style="justify-content: center;">
-                        <div class="col-md-6 formContainerForLogin">
-                            <label for="cardTitle" class="formlabel">Title</label>
-                            <input type="text" id="cardTitle" name="cardTitle">
-                            <label for="Description" class="formlabel" style="padding-top: 30px;">Description</label>
-                            <textarea id="Description" name="Description"></textarea>
-                            <!-- Adding hidden input field -->
+                        <div class="col-md-6 formContainerForLogin mb-5" style="display: flex; flex-direction: column;">
                             <input type="hidden" id="imgUrl" name="imgUrl" value="/static/img/agri.png">
+                            <label for="Name" class="formlabel">Title</label>
+                            <input type="text" id="cardTitle" name="cardTitle">
+                            <label for="Name" class="formlabel" style="padding-top: 30px;">Description</label>
+                            <textarea id="Description" name="Description" style="padding-top: 30px;"></textarea>
                             <input type="submit" value="Add Event" class="formBtn">
                         </div>
                     </div>
@@ -36,7 +35,6 @@
             </div>
         </div>
     </div>
-
 
 </section>
 {{> footer}}

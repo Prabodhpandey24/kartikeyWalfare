@@ -240,7 +240,7 @@ routes.post("/upcomingevents", async (req, res) => {
       Description,
     });
     await newEvent.save();
-    res.redirect('/');
+    res.redirect('/upcomingEvents');
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server Error" });

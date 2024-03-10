@@ -211,17 +211,39 @@ routes.post("/adminlogin", async (req, resp) => {
 
 // GET all applyMembers
 const ApplyMember = require("../model/applyMember");
-routes.get("/applyMembers", async (req, res) => {
+
+routes.get("/allMembers", async (req, res) => {
+  const navBarData = await navbarLink.find();
+  const allMembers = await ApplyMember.find();
+  console.log("ApplyMember", allMembers);
+  res.render("allMembers", {
+    navbarLink: navBarData,
+    allMembers: allMembers,
+  });
+});
+
+routes.get("/addEvents", async (req, res) => {
+  const navBarData = await navbarLink.find();
+  res.render("addEvents", {
+    navbarLink: navBarData,
+  });
+});
+
+const UpcomingEvents = require("../model/upcomingEvents");
+routes.post("/upcomingevents", async (req, res) => {
+  console.log("data>>>>>", req.body);
   try {
-    const navBarData = await navbarLink.find();
-    const applyMembers = await ApplyMember.find();
-    res.render("seeAllMembers", {
-      navbarLink: navBarData,
-      applyMembers: applyMembers,
+    const {imgUrl, cardTitle, Description } = req.body;
+    const newEvent = new UpcomingEvents({
+      imgUrl,
+      cardTitle,
+      Description,
     });
-    res.json(applyMembers);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    await newEvent.save();
+    res.redirect('/');
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server Error" });
   }
 });
 

@@ -189,17 +189,18 @@ routes.post("/adminlogin", async (req, resp) => {
   const email = req.body.Email;
   const password = req.body.Password;
 
-//   const adminUser = await AdminUser.find();
-
   if (password && email) {
     console.log("33333");
     let user = await AdminUser.findOne({
 		Email : email,
 		Password : password,
     });
-	console.log("userDaatatata>>>",user);
+	  console.log("userDaatatata>>>",user);
     if (user.Email === email && user.Password === password) {
-      resp.send(user);
+      const navBarData = await navbarLink.find();
+      resp.render('adminPanel',{
+        navbarLink: navBarData,
+      })
     } else {
       resp.send({ result: "User not found!.." });
     }
@@ -212,7 +213,12 @@ routes.post("/adminlogin", async (req, resp) => {
 const ApplyMember = require("../model/applyMember");
 routes.get("/applyMembers", async (req, res) => {
   try {
+    const navBarData = await navbarLink.find();
     const applyMembers = await ApplyMember.find();
+    res.render("seeAllMembers", {
+      navbarLink: navBarData,
+      applyMembers: applyMembers,
+    });
     res.json(applyMembers);
   } catch (err) {
     res.status(500).json({ message: err.message });

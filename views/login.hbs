@@ -12,65 +12,24 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/static/css/styles.css">
   <title>Kartikey Welafare Trust</title>
-    <!--<style>
-    /* Styles for the popup */
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: none;
-      justify-content: center;
-      align-items: center;
-    }
 
-    .popup-card {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      width: 40%;
-      height: 35%;
-      margin-top: 10rem;
-      position: relative;
-    }
-    .close-btn {
-      position: absolute;
-      top: -13px;
-      right: 10px;
-      background: none;
-      border: none;
-      font-size: 42px;
-      cursor: pointer;
-    }
-    .loginMessage{
-      color: green;
-      text-align: center;
-      font-size: 18px;
-    }
-  </style>-->
 </head>
 {{> navbar navbarData=navbarLink}}
 <section class="pt-5">
-  {{!-- <div class="sliderHeading d-flex justify-content-center sliderHeadingForOthers">
-    <h4 class="sliderHeadingText ">Login</h4>
-  </div> --}}
   <div class="container-fluid mx-0 px-0">
     <div class="row" style="align-items: center; justify-content:center">
       <div class="col-sm-7 pt-5">
         <img src="../static/img/wheat.jpeg" alt="Wheat" style="width: 100%;">
       </div>
       <div class="col-sm-5 " style="padding-top: 150px;">
-        <form action="/adminlogin" method="post">
+        <form id="loginForm" action="/adminlogin" method="post">
           <div class="row" style="justify-content: center;">
             <div class="col-md-6 formContainerForLogin">
-              <label for="Name" class="formlabel" >Email Address / User Id</label>
-              <input type="text" id="userId" name="Email">
-              <label for="Name" class="formlabel" style="padding-top: 30px;">Password</label>
-              <input type="password" id="pass" name="Password">
-              <input type="submit" value="Submit" class="formBtn">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="Email" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="Password" required><br><br>
+            <input type="submit" value="Login" class="formBtn">
             </div>
           </div>
         </form>
@@ -80,29 +39,6 @@
 
 </section>
 
-  <!--<div class="popup" id="popup">
-    <div class="popup-card">
-      <button class="close-btn" onclick="closePopup()">&times;</button>
-      <p id="loginMessage" class="loginMessage">Login successfully</p>
-       
-      <h3 class="card-title mt-2">Welcome to Kartikey Welfare Trust</h3>
-
-      <div class="d-flex justify-content-between" style="margin-top: 3rem;">
-        <div class="card" style="width: 18rem; height: 100%;">
-          <div class="card body align-items-center">
-            <h5 class="card-title mt-2">Card title</h5>
-            <a href="/memberApply" class="btn btn-primary w-50 mb-2">Add member</a>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem; height: 100%;">
-          <div class="card body align-items-center">
-            <h5 class="card-title mt-2">Card title</h5>
-            <a href="/adminpanel" class="btn btn-primary w-50 mb-2">See members</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>-->
 {{> footer}}
 
 <body>
@@ -112,22 +48,29 @@
     crossorigin="anonymous">
   </script>
 
-  <!--<script>
-    function openPopup() {
-      document.getElementById('popup').style.display = 'flex';
-    }
+<script>
+        const User = {
+            saveCredentials: function(email, password) {
+                localStorage.setItem('email', email);
+                localStorage.setItem('password', password);
+            }
+        };
 
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
+        // Event listener for form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
 
-    setTimeout(function() {
-      var loginMessage = document.getElementById('loginMessage');
-        if (loginMessage) {
-          loginMessage.style.display = 'none';
-        }
-      }, 5000); 
-  </script> -->
+            // Get email and password from form
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Save email and password to local storage using User object
+            User.saveCredentials(email, password);
+
+            // Submit the form
+            this.submit();
+        });
+    </script>
 </body>
 
 </html>

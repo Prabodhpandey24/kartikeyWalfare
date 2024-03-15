@@ -1,24 +1,60 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
-    integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/static/css/styles.css">
-  <title>Kartikey Welafare Trust</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+        integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Kartikey Welafare Trust</title>
 </head>
+<style>
+    #loaderDiv {
+        justify-content: center;
+        left: 0;
+        right: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+        height: 100%;
+        position: fixed;
+        overflow-y: hidden;
+        display: none;
+    }
+
+    #loader {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 5px solid #ddd;
+        border-top-color: #333;
+        animation: rotate 1s infinite;
+        z-index: 1;
+        top: 50%;
+        position: absolute;
+    }
+
+    @keyframes rotate {
+        100% {
+            rotate: 360deg;
+        }
+    }
+</style>
+
 <body>
     {{> navbar navbarData=navbarLink}}
     <div class="container" style="padding: 200px 0px;">
         <div class="d-flex justify-content-around">
-          <h1 style="text-align: center;">Admin Panel</h1>
-          <button class="btn btn-info" style=" height: 45px;" id="logoutBtn">Logout</button>
+            <h1 style="text-align: center;">Admin Panel</h1>
+            <button class="btn btn-info" style=" height: 45px;" id="logoutBtn">Logout</button>
+        </div>
+        <div id="loaderDiv">
+            <div id="loader"></div>
         </div>
         <div id="data" class="d-flex justify-content-center">
             <div class="card m-5" style="width: 20rem;">
@@ -40,10 +76,10 @@
     </div>
     {{> footer}}
 
- {{! bootstrap js }}
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    {{! bootstrap js }}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -52,16 +88,28 @@
             const password = localStorage.getItem('password');
 
             if (email && password) {
-                logoutBtn.style.display = 'block'; 
+                logoutBtn.style.display = 'block';
             } else {
-                logoutBtn.style.display = 'none'; 
+                logoutBtn.style.display = 'none';
             }
-            
+
             const User = {
                 clearCredentials: function () {
-                    localStorage.removeItem('email');
-                    localStorage.removeItem('password');
-                    logoutBtn.style.display = 'none';
+                    // Show loader
+                    const loaderDiv = document.getElementById('loaderDiv');
+                    loaderDiv.style.display = 'flex';
+
+                    // Simulate a delay to show the loader
+                    setTimeout(() => {
+                        // Clear credentials
+                        localStorage.removeItem('email');
+                        localStorage.removeItem('password');
+                        logoutBtn.style.display = 'none';
+                        // Hide loader
+                        loaderDiv.style.display = 'none';
+                        // Redirect to the home page
+                        window.location.href = '/';
+                    }, 2000); // Adjust the delay time as needed
                 }
             };
 
@@ -70,9 +118,12 @@
             });
         });
     </script>
+
+
 </body>
 
 
 
-    </body>
+</body>
+
 </html>

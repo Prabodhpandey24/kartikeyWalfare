@@ -12,6 +12,38 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/static/css/styles.css">
   <title>Kartikey Welafare Trust</title>
+  <style>
+    #loaderDiv {
+      justify-content: center;
+      left: 0;
+      right: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      height: 100%;
+      position: fixed;
+      overflow-y: hidden;
+      display: none;
+    }
+
+    #loader {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      border: 5px solid #ddd;
+      border-top-color: #333;
+      animation: rotate 1s infinite;
+      z-index: 1;
+      top: 50%;
+      position: absolute;
+    }
+
+    @keyframes rotate {
+      100% {
+        rotate: 360deg;
+      }
+    }
+  </style>
 </head>
 {{> navbar navbarData=navbarLink}}
 <section class="py-5 mx-4">
@@ -20,6 +52,9 @@
   </div>
   <div class="container formContainer">
     <form action="/member-Apply-Form-Submitted" method="post" enctype="multipart/form-data">
+      <div id="loaderDiv">
+        <div id="loader"></div>
+      </div>
       <div class="row">
         <div class="col-md-6 formContainerFor">
           <label for="Name" class="formlabel">Full Name <sup class="sup">*</sup> :</label>
@@ -43,7 +78,7 @@
           <input type="text" id="city" name="District">
         </div>
         <div class="borderBottomForForm my-4"></div>
-           <div class="col-md-6 formContainerFor">
+        <div class="col-md-6 formContainerFor">
           <label for="City" class="formlabel">City <sup class="sup">*</sup> :</label>
           <input type="text" id="city" name="City">
         </div>
@@ -52,43 +87,43 @@
           <input type="text" id="mobNum" name="MobileNumber">
         </div>
         <div class="borderBottomForForm my-4"></div>
-           <div class="col-md-6 formContainerFor">
+        <div class="col-md-6 formContainerFor">
           <label for="City" class="formlabel">Email <sup class="sup">*</sup> :</label>
           <input type="email" id="city" name="Email">
         </div>
         <div class="borderBottomForForm my-4"></div>
-            <div class="col-md-6 formContainerFor">
-              <label for="cars">Payment Mode<sup class="sup">*</sup> :</label>
-              <select id="cars formContainerFor" name="UpiMethod">
-                <option value="Bank Transfer Slip">Bank Transfer Slip</option>
-                <option value="Google Pay">Google Pay</option>
-                <option value="Phonepe">Phonepe</option>
-                <option value="Amazon Pay">Amazon Pay</option>
-                <option value="Paytm">Paytm</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-          <div class="col-md-6 formContainerFor ">
-            <label for="City" class="formlabel">UPI SCAN:<sup class="sup">*</sup> :</label>
-            <img src="/static/img/donate.jpg" alt="" class="payImg">
-          </div>
-           <div class="borderBottomForForm my-4"></div>
-           <div class="col-md-6 formContainerFor">
-            <label for="City" class="formlabel">Payment Reciept Upload<sup class="sup">*</sup> :</label>
-             <input type="file" id="myFile" name="file_upi" class="">
-          </div>           
-          </div>
-       
-        {{!-- <div class="borderBottomForForm my-3"></div>
-        <div class="col-md-12 formContainerFor">
-          <label for="Name" class="formlabel">Message :</label>
-          <textarea name="Message" id="" cols="5" rows="2" class="txtarea"></textarea>
-        </div> --}}
-
-        <div class="borderBottomForForm my-3"></div>
-        <div class=" d-flex justify-content-center" id="formBtn">
-          <input type="submit" value="Submit" class="formBtn">
+        <div class="col-md-6 formContainerFor">
+          <label for="cars">Payment Mode<sup class="sup">*</sup> :</label>
+          <select id="cars formContainerFor" name="UpiMethod">
+            <option value="Bank Transfer Slip">Bank Transfer Slip</option>
+            <option value="Google Pay">Google Pay</option>
+            <option value="Phonepe">Phonepe</option>
+            <option value="Amazon Pay">Amazon Pay</option>
+            <option value="Paytm">Paytm</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
+        <div class="col-md-6 formContainerFor ">
+          <label for="City" class="formlabel">UPI SCAN:<sup class="sup">*</sup> :</label>
+          <img src="/static/img/donate.jpg" alt="" class="payImg">
+        </div>
+        <div class="borderBottomForForm my-4"></div>
+        <div class="col-md-6 formContainerFor">
+          <label for="City" class="formlabel">Payment Reciept Upload<sup class="sup">*</sup> :</label>
+          <input type="file" id="myFile" name="file_upi" class="">
+        </div>
+      </div>
+
+      {{!-- <div class="borderBottomForForm my-3"></div>
+      <div class="col-md-12 formContainerFor">
+        <label for="Name" class="formlabel">Message :</label>
+        <textarea name="Message" id="" cols="5" rows="2" class="txtarea"></textarea>
+      </div> --}}
+
+      <div class="borderBottomForForm my-3"></div>
+      <div class=" d-flex justify-content-center" id="formBtn">
+        <input type="submit" value="Submit" class="formBtn">
+      </div>
     </form>
 </section>
 {{> footer}}
@@ -98,6 +133,31 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script>
+    // Function to show the loader
+    function showLoader() {
+      document.getElementById('loaderDiv').style.display = 'flex';
+      // Hide the loader after 3 seconds
+      setTimeout(function () {
+        hideLoader();
+      }, 3000); // 3000 milliseconds = 3 seconds
+    }
+
+    // Function to hide the loader
+    function hideLoader() {
+      document.getElementById('loaderDiv').style.display = 'none';
+    }
+
+    // Get the form element
+    const form = document.querySelector('form');
+
+    // Add event listener to form submission
+    form.addEventListener('submit', function (event) {
+      // Show the loader when the form is submitted
+      showLoader();
+    });
+  </script>
+
 </body>
 
 </html>

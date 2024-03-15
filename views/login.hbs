@@ -12,6 +12,38 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/static/css/styles.css">
   <title>Kartikey Welafare Trust</title>
+  <style>
+    #loaderDiv {
+      justify-content: center;
+      left: 0;
+      right: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+      height: 100%;
+      position: fixed;
+      overflow-y: hidden;
+      display: none;
+    }
+
+    #loader {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      border: 5px solid #ddd;
+      border-top-color: #333;
+      animation: rotate 1s infinite;
+      z-index: 1;
+      top: 50%;
+      position: absolute;
+    }
+
+    @keyframes rotate {
+      100% {
+        rotate: 360deg;
+      }
+    }
+  </style>
 
 </head>
 {{> navbar navbarData=navbarLink}}
@@ -22,20 +54,24 @@
         <img src="../static/img/wheat.jpeg" alt="Wheat" style="width: 100%;">
       </div>
       <div class="col-sm-5 " style="padding-top: 150px;">
+        <div id="loaderDiv">
+          <div id="loader"></div>
+        </div>
         <form id="loginForm" action="/adminlogin" method="post">
           <div class="row" style="justify-content: center;">
             <div class="col-md-6 formContainerForLogin">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="Email" required><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="Password" required><br><br>
-            <input type="submit" value="Login" class="formBtn">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="Email" required><br><br>
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="Password" required><br><br>
+              <input type="submit" value="Login" class="formBtn">
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
+
 
 </section>
 
@@ -44,33 +80,41 @@
 <body>
   {{! bootstrap js }}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous">
-  </script>
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
 <script>
-        const User = {
-            saveCredentials: function(email, password) {
-                localStorage.setItem('email', email);
-                localStorage.setItem('password', password);
-            }
-        };
+  document.addEventListener('DOMContentLoaded', function() {
+    // Your JavaScript code here
+    const User = {
+      saveCredentials: function(email, password) {
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+      }
+    };
 
-        // Event listener for form submission
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
+    // Event listener for form submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
 
-            // Get email and password from form
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+      // Show loader
+      document.getElementById('loaderDiv').style.display = 'flex';
 
-            // Save email and password to local storage using User object
-            User.saveCredentials(email, password);
+      // Get email and password from form
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-            // Submit the form
-            this.submit();
-        });
-    </script>
+      // Save email and password to local storage using User object
+      User.saveCredentials(email, password);
+
+      // Submit the form after 5 seconds
+      setTimeout(() => {
+        document.getElementById('loginForm').submit();
+      }, 2000); // 5 seconds
+    });
+  });
+</script>
+
 </body>
 
 </html>
